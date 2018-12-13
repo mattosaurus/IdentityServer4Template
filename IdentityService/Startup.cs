@@ -69,8 +69,7 @@ namespace IdentityService
                 {
                     Log.Information("SIGNING CERTIFICATE AQUIRED WITH THUMBPRINT:  \"" + certThumb + "\"");
                     services.AddIdentityServer()
-                    //.AddTemporarySigningCredential()  //Use this for test purposes only
-                    .AddSigningCredential(SigningCertificate)         //Use this to add trusted certificate or rsa key
+                    .AddSigningCredential(SigningCertificate) // Use this to add trusted certificate or rsa key
                     .AddConfigurationStore(options =>
                     {
                         options.ConfigureDbContext = builder => builder.UseSqlServer(Configuration["ConnectionStrings:IdentityServiceConnection"]);
@@ -88,8 +87,7 @@ namespace IdentityService
                 {
                     Log.Warning("UNABLE TO AQUIRE SIGNING CERTIFICATE WITH THUMBPRINT:  \"" + certThumb + "\" USING TEMPORARY SIGNING CREDENTIAL");
                     services.AddIdentityServer()
-                    .AddDeveloperSigningCredential()  //Use this for test purposes only
-                    //.AddSigningCredential(SigningCertificate)         //Use this to add trusted certificate or rsa key
+                    .AddDeveloperSigningCredential() // Use this for test purposes only
                     .AddConfigurationStore(options =>
                     {
                         options.ConfigureDbContext = builder => builder.UseSqlServer(Configuration["ConnectionStrings:IdentityServiceConnection"]);
