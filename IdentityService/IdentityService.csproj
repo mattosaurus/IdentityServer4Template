@@ -20,4 +20,10 @@
     <PackageReference Include="Serilog.Sinks.MSSqlServer" Version="5.1.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
